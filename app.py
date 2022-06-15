@@ -1,9 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect
 import requests
-import os
-
-os.environ["GIT_PYTHON_REFRESH"] = "quiet"
-import git
 
 app = Flask(__name__)
 
@@ -40,16 +36,11 @@ def user(name, id):
     return 'user page ' + name + ' - ' + str(id)
 
 
-@app.route('/update_server', methods=['POST'])
-def webhook():
-    if request.method == 'POST':
-        repo = git.Repo('tucproject/frontendFileStorage.git')
-        origin = repo.remotes.origin
-        origin.pull()
-        return 'Updated PythonAnywhere successfully', 200
-    else:
-        return 'Wrong event type', 400
+def uploading():
+    pass
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+#MYTODO hash for password

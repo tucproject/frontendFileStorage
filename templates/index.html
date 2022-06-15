@@ -4,11 +4,48 @@
 {% endblock %}
 {% block body %}
     <h1>{{ msg }}</h1>
-    <h1>singIN</h1>
-    <h1><a href="/registration">registration</a></h1>
-    <h1></h1>
-    <form method="post">
+    <form method="post" name="registration">
+        <table align="right" border="0">
+            <tr>
+                <td>
+                    user name:
+                </td>
+                <td>
+                    password:
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="user" id="user" class="form-control", width="100">
+                </td>
+                <td>
+                    <input type="password" name="psw" id="psw" class="form-control", width="100">
+                </td>
+                <td>
+                    <input type="submit" class="btn btn-success" value="Log in">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    if you need to manage your uploads you need to <a href="/registration">register here</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <h1 align="center">File storage.The project task for course "Databanken und Webtechniken"</h1>
+    <hr size="5">
+    <h2>DOWNLOAD FILE:</h2>
+    <form method="post" name="download">
         <div class=>put the link in the field:</div> <input type="text" name="psw" id="psw" class="form-control", width="100">
         <input type="submit" class="btn btn-success" value="Go to file">
+    </form>
+    <hr size="5">
+    <h2>UPLOAD FILE:</h2>
+    <form method="post" name="upload" action="index.html">
+        <div class=>attach a file for uploading:</div> <input type="file" name="file" id="file" class="form-control", width="100">
+        <input type="submit" class="btn btn-success" value="Upload file">
     </form>
 {% endblock %}
