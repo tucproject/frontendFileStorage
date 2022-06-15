@@ -4,8 +4,7 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/')
-@app.route('/home')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
@@ -36,8 +35,13 @@ def user(name, id):
     return 'user page ' + name + ' - ' + str(id)
 
 
+@app.route('/upload', methods=['GET', 'POST'])
 def uploading():
-    pass
+    if request.method == 'POST' and "file" in request.files:
+        print('alles gut')
+    else:
+        return redirect('/')
+    return render_template('upload.html')
 
 
 if __name__ == '__main__':
